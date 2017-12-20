@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+
+        <table align="center" *ngFor="let d of data; let i = index">
+          <tr>
+            <th> Index </th>
+            <th> Name </th>
+            <th> Operations </th>
+          </tr>
+
+          <tr>
+            <td> {{i+1}} </td>
+            <td> <input type="text" name="namefield" [(ngModel)]="d.name" [disabled]="inputDisabled" #refData> </td>
+            <td>
+              <button type="button" name="editButton" (click)="onEdit()"> Edit </button>
+              <button type="button" name="okButton" *ngIf="okButtonEnable" (click)="onOkAndUpdate(refData.value)" > Ok </button> <br/> <br/>
+              <button type="button" name="deleteButton" (click)="onDelete(refData.value)"> Delete </button>
+            </td>
+          </tr>
+        </table>
+</div>
